@@ -10,18 +10,34 @@ const dataSchema = {
 
 class Dropdown {
 	constructor() {
-		this.isShow = false;
+		this.isShow = true;
 	}
 
-	static targets = "content";
+	static targets = ["content"];
 
 	toggle() {
 		if (this.isShow === false) {
-			this.targetElement.style.removeProperty("display");
-			this.isShow = true;
+			if (this.contentElement) {
+				this.contentElement.style.removeProperty("display");
+				this.isShow = true;
+			}
+
+			if (this.contentElements) {
+				this.contentElements[0].style.removeProperty("display");
+				this.contentElements[1].style.removeProperty("display");
+				this.isShow = true;
+			}
 		} else {
-			this.targetElement.style.setProperty("display", "none");
-			this.isShow = false;
+			if (this.contentElement) {
+				this.contentElement.style.setProperty("display", "none");
+				this.isShow = false;
+			}
+
+			if (this.contentElements) {
+				this.contentElements[0].style.setProperty("display", "none");
+				this.contentElements[1].style.setProperty("display", "none");
+				this.isShow = false;
+			}
 		}
 	}
 }

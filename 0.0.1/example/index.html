@@ -23,6 +23,16 @@
 			<div data-interaction-controller="counter">
 				<button data-counter-event="click->increase" type="button">increase one</button>
 				<span data-counter-target="result">0</span>
+
+				<div data-interaction-controller="counter">
+					<button data-counter-event="click->increase" type="button">increase one</button>
+					<span data-counter-target="result">0</span>
+
+					<div data-interaction-controller="counter">
+						<button data-counter-event="click->increase" type="button">increase one</button>
+						<span data-counter-target="result">0</span>
+					</div>
+				</div>
 			</div>
 
 			<div data-interaction-controller="counter">
@@ -58,22 +68,40 @@
 		<div data-interaction-controller="dropdown">
 			<button data-dropdown-event="click->toggle">dropdown</button>
 
-			<ul data-dropdown-target="content" style="display: none">
+			<ul data-dropdown-target="content" style="display: block">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Career</a></li>
 				<li><a href="#">FAQ</a></li>
 			</ul>
 
+			<ul data-dropdown-target="content" style="display: block">
+				<li><a href="#">Jobs</a></li>
+				<li><a href="#">Clients</a></li>
+				<li><a href="#">Company</a></li>
+				<li><a href="#">Legal</a></li>
+			</ul>
+
 			<div data-interaction-controller="dropdown">
 				<button data-dropdown-event="click->toggle">dropdown</button>
 
-				<ul data-dropdown-target="content" style="display: none">
+				<ul data-dropdown-target="content" style="display: block">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Career</a></li>
 					<li><a href="#">FAQ</a></li>
 				</ul>
+
+				<div data-interaction-controller="dropdown">
+					<button data-dropdown-event="click->toggle">dropdown</button>
+
+					<ul data-dropdown-target="content" style="display: block">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Career</a></li>
+						<li><a href="#">FAQ</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
@@ -82,7 +110,7 @@
 		<div data-interaction-controller="dropdown">
 			<button data-dropdown-event="click->toggle">dropdown</button>
 
-			<ul data-dropdown-target="content" style="display: none">
+			<ul data-dropdown-target="content" style="display: block">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Career</a></li>

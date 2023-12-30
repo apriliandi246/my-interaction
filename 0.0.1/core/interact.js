@@ -22,11 +22,37 @@ export class Interaction {
 		this.controllerElements = Array.from(elements);
 	}
 
-	findTargetElement(controllerElement) {
-		const selector = `[${this.dataScheme.target}="${this.targetIdentifier}"]`;
-		const element = controllerElement.querySelector(selector);
+	findTargetElements(controllerElement, targetIdentifier) {
+		const selectedTargetElements = [];
+		const selector = `[${this.dataScheme.target}="${targetIdentifier}"]`;
+		const elements = controllerElement.querySelectorAll(selector);
 
-		return element;
+		for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
+			const element = elements[elementIdx];
+			const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
+
+			if (controllerElementScope === controllerElement) {
+				selectedTargetElements.push(element);
+			}
+		}
+
+		if (selectedTargetElements.length === 1) {
+			const targetProperty = `${targetIdentifier}Element`;
+
+			return {
+				targetProperty: targetProperty,
+				elements: selectedTargetElements[0],
+			};
+		}
+
+		if (selectedTargetElements.length > 1) {
+			const targetProperty = `${targetIdentifier}Elements`;
+
+			return {
+				targetProperty: targetProperty,
+				elements: selectedTargetElements,
+			};
+		}
 	}
 
 	findActionElement(controllerElement) {
@@ -42,18 +68,21 @@ export class Interaction {
 	setControllerData() {
 		for (let controllerIdx = 0; controllerIdx < this.controllerElements.length; controllerIdx++) {
 			const controllerElement = this.controllerElements[controllerIdx];
-			const targetElement = this.findTargetElement(controllerElement);
-			const { actionElement, eventName, listenerName } = this.findActionElement(controllerElement);
 
-			this.Controller.prototype.controllerName = this.controllerName;
+			for (let targetIdx = 0; targetIdx < this.targetIdentifier.length; targetIdx++) {
+				const { actionElement, eventName, listenerName } = this.findActionElement(controllerElement);
+				const { targetProperty, elements } = this.findTargetElements(controllerElement, this.targetIdentifier[targetIdx]);
 
-			const controllerInstance = new this.Controller();
-			controllerInstance.targetElement = targetElement;
-			controllerInstance.controllerElement = controllerElement;
+				this.Controller.prototype.controllerName = this.controllerName;
 
-			actionElement.addEventListener(eventName, (event) => {
-				controllerInstance[listenerName](event);
-			});
+				const controllerInstance = new this.Controller();
+				controllerInstance[targetProperty] = elements;
+				controllerInstance.controllerElement = controllerElement;
+
+				actionElement.addEventListener(eventName, (event) => {
+					controllerInstance[listenerName](event);
+				});
+			}
 		}
 	}
 }
