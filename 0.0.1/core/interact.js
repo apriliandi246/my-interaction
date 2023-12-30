@@ -86,5 +86,3 @@ export class Interaction {
 		}
 	}
 }
-
-const data = "click->element->methodName";
