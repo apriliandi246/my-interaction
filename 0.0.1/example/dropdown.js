@@ -1,5 +1,13 @@
 import { Interaction } from "../core/interact.js";
 
+const CONTROLLER_NAME = "dropdown";
+
+const dataSchema = {
+	controller: "data-interaction-controller",
+	target: `data-${CONTROLLER_NAME}-target`,
+	event: `data-${CONTROLLER_NAME}-event`,
+};
+
 class Dropdown {
 	constructor() {
 		this.isShow = false;
@@ -17,13 +25,5 @@ class Dropdown {
 		}
 	}
 }
-
-const CONTROLLER_NAME = "dropdown";
-
-const dataSchema = {
-	controller: "data-controller",
-	target: "data-target",
-	event: "data-event",
-};
 
 new Interaction(CONTROLLER_NAME, Dropdown, dataSchema);

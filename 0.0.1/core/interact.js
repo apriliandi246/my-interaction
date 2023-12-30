@@ -1,7 +1,5 @@
-import { dataAttributeSchema } from "./data_attribute_schema.js";
-
 export class Interaction {
-	constructor(controllerName, Controller, dataScheme = dataAttributeSchema) {
+	constructor(controllerName, Controller, dataScheme) {
 		this.controllerElements;
 		this.Controller = Controller;
 		this.controllerName = controllerName;
@@ -59,3 +57,5 @@ export class Interaction {
 		}
 	}
 }
+
+const data = "click->element->methodName";

@@ -3,83 +3,86 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<style>
+			div {
+				padding: 10px;
+				border: 1px solid red;
+			}
+		</style>
+
 		<title>Example</title>
 	</head>
 	<body style="padding-bottom: 50px">
 		<h1>Hello World</h1>
 
-		<div data-interact-controller="counter">
-			<button data-interact-event="click->increase" type="button">increase one</button>
-			<span data-interact-target="result">0</span>
+		<div data-interaction-controller="counter">
+			<button data-counter-event="click->increase" type="button">increase one</button>
+			<span data-counter-target="result">0</span>
+
+			<div data-interaction-controller="counter">
+				<button data-counter-event="click->increase" type="button">increase one</button>
+				<span data-counter-target="result">0</span>
+			</div>
+
+			<div data-interaction-controller="counter">
+				<button data-counter-event="click->increase" type="button">increase one</button>
+				<span data-counter-target="result">0</span>
+			</div>
 		</div>
 
 		<br /><br />
 
-		<div data-interact-controller="counter">
-			<button data-interact-event="click->increase" type="button">increase one</button>
-			<span data-interact-target="result">0</span>
+		<div data-interaction-controller="counter">
+			<button data-counter-event="click->increase" type="button">increase one</button>
+			<span data-counter-target="result">0</span>
 		</div>
 
 		<br /><br />
 
-		<div data-interact-controller="counter">
-			<button data-interact-event="click->increase" type="button">increase one</button>
-			<span data-interact-target="result">0</span>
+		<div data-interaction-controller="counter">
+			<button data-counter-event="click->increase" type="button">increase one</button>
+			<span data-counter-target="result">0</span>
 		</div>
 
 		<br /><br />
 
-		<div data-interact-controller="counter">
-			<button data-interact-event="click->increase" type="button">increase one</button>
-			<span data-interact-target="result">0</span>
+		<div data-interaction-controller="counter">
+			<button data-counter-event="click->increase" type="button">increase one</button>
+			<span data-counter-target="result">0</span>
 		</div>
 
 		<br /><br />
 		<br /><br />
 
-		<div data-controller="dropdown">
-			<button data-event="click->toggle">dropdown</button>
+		<div data-interaction-controller="dropdown">
+			<button data-dropdown-event="click->toggle">dropdown</button>
 
-			<ul data-target="content" style="display: none">
+			<ul data-dropdown-target="content" style="display: none">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Career</a></li>
 				<li><a href="#">FAQ</a></li>
 			</ul>
+
+			<div data-interaction-controller="dropdown">
+				<button data-dropdown-event="click->toggle">dropdown</button>
+
+				<ul data-dropdown-target="content" style="display: none">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Career</a></li>
+					<li><a href="#">FAQ</a></li>
+				</ul>
+			</div>
 		</div>
 
 		<br /><br />
 
-		<div data-controller="dropdown">
-			<button data-event="click->toggle">dropdown</button>
+		<div data-interaction-controller="dropdown">
+			<button data-dropdown-event="click->toggle">dropdown</button>
 
-			<ul data-target="content" style="display: none">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Career</a></li>
-				<li><a href="#">FAQ</a></li>
-			</ul>
-		</div>
-
-		<br /><br />
-
-		<div data-controller="dropdown">
-			<button data-event="click->toggle">dropdown</button>
-
-			<ul data-target="content" style="display: none">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Career</a></li>
-				<li><a href="#">FAQ</a></li>
-			</ul>
-		</div>
-
-		<br /><br />
-
-		<div data-controller="dropdown">
-			<button data-event="click->toggle">dropdown</button>
-
-			<ul data-target="content" style="display: none">
+			<ul data-dropdown-target="content" style="display: none">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Career</a></li>
