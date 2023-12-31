@@ -61,7 +61,6 @@ export class Interaction {
 
 		for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
 			const element = elements[elementIdx];
-			console.log(element);
 			const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
 
 			if (controllerElementScope === controllerElement) {

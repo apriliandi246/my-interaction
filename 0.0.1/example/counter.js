@@ -11,8 +11,6 @@ const dataSchema = {
 class Counter {
 	constructor() {
 		this.count = 0;
-
-		console.log(this);
 	}
 
 	static targets = ["result", "result_2"];
