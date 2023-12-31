@@ -11,6 +11,8 @@ const dataSchema = {
 class Dropdown {
 	constructor() {
 		this.isShow = true;
+
+		console.log(this);
 	}
 
 	static targets = ["content"];

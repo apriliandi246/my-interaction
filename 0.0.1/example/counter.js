@@ -11,13 +11,19 @@ const dataSchema = {
 class Counter {
 	constructor() {
 		this.count = 0;
+
+		console.log(this);
 	}
 
-	static targets = ["result"];
+	static targets = ["result", "result_2"];
 
 	increase() {
 		this.count++;
 		this.resultElement.textContent = this.count;
+	}
+
+	print(event) {
+		console.log(event.target);
 	}
 }
 
