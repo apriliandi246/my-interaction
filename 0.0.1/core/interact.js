@@ -25,33 +25,35 @@ export class Interaction {
 	setTargetElements(controllerElement, controllerInstance) {
 		let selectedTargetElements = [];
 
-		for (let targetIdx = 0; targetIdx < this.targetIdentifier.length; targetIdx++) {
-			const targetIdentifier = this.targetIdentifier[targetIdx];
-			const selector = `[${this.dataScheme.target}=${targetIdentifier}]`;
-			const elements = controllerElement.querySelectorAll(selector);
+		if (this.targetIdentifier !== undefined && this.targetIdentifier.length > 0) {
+			for (let targetIdx = 0; targetIdx < this.targetIdentifier.length; targetIdx++) {
+				const targetIdentifier = this.targetIdentifier[targetIdx];
+				const selector = `[${this.dataScheme.target}=${targetIdentifier}]`;
+				const elements = controllerElement.querySelectorAll(selector);
 
-			for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
-				const element = elements[elementIdx];
-				const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
+				for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
+					const element = elements[elementIdx];
+					const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
 
-				if (controllerElementScope === controllerElement) {
-					selectedTargetElements.push(element);
+					if (controllerElementScope === controllerElement) {
+						selectedTargetElements.push(element);
+					}
 				}
+
+				if (selectedTargetElements.length === 1) {
+					const targetProperty = `${targetIdentifier}Element`;
+
+					controllerInstance[targetProperty] = selectedTargetElements[0];
+				}
+
+				if (selectedTargetElements.length > 1) {
+					const targetProperty = `${targetIdentifier}Elements`;
+
+					controllerInstance[targetProperty] = selectedTargetElements;
+				}
+
+				selectedTargetElements = [];
 			}
-
-			if (selectedTargetElements.length === 1) {
-				const targetProperty = `${targetIdentifier}Element`;
-
-				controllerInstance[targetProperty] = selectedTargetElements[0];
-			}
-
-			if (selectedTargetElements.length > 1) {
-				const targetProperty = `${targetIdentifier}Elements`;
-
-				controllerInstance[targetProperty] = selectedTargetElements;
-			}
-
-			selectedTargetElements = [];
 		}
 	}
 

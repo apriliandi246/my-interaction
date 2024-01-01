@@ -1,4 +1,4 @@
-import { Interaction } from "../core/interact.js";
+import { Interaction } from "../../core/interact.js";
 
 const CONTROLLER_NAME = "counter";
 
