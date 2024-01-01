@@ -17,8 +17,8 @@
 		<h1>Hello World</h1>
 
 		<div data-interaction-controller="counter">
-			<button type="button" data-counter-event="click->print">just click it</button>
-			<button data-counter-event="click->increase" type="button">increase one</button>
+			<button type="button" data-counter-event="click->print keydown->keyboard mouseover->cursorIn">just click it</button>
+			<button data-counter-event="click->increase keydown->keyboard mouseover->cursorIn" type="button">increase one</button>
 			<span data-counter-target="result">0</span>
 			<span data-counter-target="result_2">0</span>
 
@@ -117,7 +117,7 @@
 		<br /><br />
 
 		<div data-interaction-controller="dropdown">
-			<button data-dropdown-event="click->toggle">dropdown</button>
+			<button data-dropdown-event="click->toggle dblclick->doubleClick">dropdown</button>
 
 			<ul data-dropdown-target="content" style="display: block">
 				<li><a href="#">Home</a></li>

@@ -61,16 +61,19 @@ export class Interaction {
 
 		for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
 			const element = elements[elementIdx];
+			const eventListners = element.getAttribute(this.dataScheme.event).split(" ");
 			const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
 
 			if (controllerElementScope === controllerElement) {
-				const actionElementData = element.getAttribute(this.dataScheme.event).split("->");
-				const eventName = actionElementData[0];
-				const listenerName = actionElementData[1];
+				for (let eventListenerIdx = 0; eventListenerIdx < eventListners.length; eventListenerIdx++) {
+					const actionElementData = eventListners[eventListenerIdx].split("->");
+					const eventName = actionElementData[0];
+					const listenerName = actionElementData[1];
 
-				element.addEventListener(eventName, (event) => {
-					controllerInstance[listenerName](event);
-				});
+					element.addEventListener(eventName, (event) => {
+						controllerInstance[listenerName](event);
+					});
+				}
 			}
 		}
 	}
