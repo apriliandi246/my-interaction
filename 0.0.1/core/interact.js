@@ -71,13 +71,34 @@ export class Interaction {
 					const actionElementData = eventListners[eventListenerIdx].split("->");
 					const eventName = actionElementData[0];
 					const listenerName = actionElementData[1];
+					const eventParameters = this.getEventParameters(element);
 
 					element.addEventListener(eventName, (event) => {
+						event["eventParams"] = eventParameters;
 						controllerInstance[listenerName](event);
 					});
 				}
 			}
 		}
+	}
+
+	getEventParameters(element) {
+		const parameters = {};
+		const dataAttrPattern = new RegExp(`^data-${this.controllerName}-(.+)-param$`, "i");
+		const datasetAttributes = Array.from(element.attributes);
+
+		for (const datasetAttribute of datasetAttributes) {
+			const { name, value } = datasetAttribute;
+
+			const match = name.match(dataAttrPattern);
+			const paramKey = match && match[1];
+
+			if (paramKey) {
+				parameters[paramKey] = value;
+			}
+		}
+
+		return parameters;
 	}
 
 	setControllersData() {
