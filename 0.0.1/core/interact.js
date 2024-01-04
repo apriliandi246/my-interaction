@@ -1,5 +1,5 @@
 export class Interaction {
-	constructor(controllerName, Controller, dataScheme) {
+	constructor(controllerName, dataScheme, Controller) {
 		this.controllerElements;
 		this.Controller = Controller;
 		this.controllerName = controllerName;
@@ -105,6 +105,7 @@ export class Interaction {
 		for (let controllerIdx = 0; controllerIdx < this.controllerElements.length; controllerIdx++) {
 			const controllerElement = this.controllerElements[controllerIdx];
 
+			/* Add "controllerName" property to the prototype */
 			this.Controller.prototype.controllerName = this.controllerName;
 
 			const controllerInstance = new this.Controller();

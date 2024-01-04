@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.accordion-container {
+				width: 500px;
+				margin-inline: auto;
+				margin-top: 50px;
+			}
+
+			button {
+				cursor: pointer;
+				margin-bottom: 8px;
+			}
+
+			.accordion-inner {
+				padding: 10px;
+				border: 2px solid blue;
+				margin-bottom: 50px;
+			}
+
+			.accordion-outer {
+				padding: 15px;
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="accordion-outer" class="accordion-container" data-interaction-controller="accordion">
+			<div class="accordion-inner" class="accordion-container" data-interaction-controller="accordion">
+				<div>
+					<button type="button" data-accordion-event="click->toggle" data-accordion-content_id-param="0">What is Stimulus JS ????</button>
+
+					<div style="display: none" data-accordion-target="accordionContent" data-content_id="0">
+						Stimulus is a JavaScript framework with modest ambitions. It doesn’t seek to take over your entire front-end—in fact, it’s not concerned with rendering HTML at all. Instead, it’s designed to augment
+						your HTML with just enough behavior to make it shine
+					</div>
+				</div>
+
+				<br /><br /><br />
+
+				<div>
+					<button type="button" data-accordion-event="click->toggle" data-accordion-content_id-param="1">What is HTMX ????</button>
+
+					<div style="display: none" data-accordion-target="accordionContent" data-content_id="1">
+						htmx is a library that allows you to access modern browser features directly from HTML, rather than using javascript
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<button type="button" data-accordion-event="click->toggle" data-accordion-content_id-param="0">What is HTML ????</button>
+
+				<div style="display: none" data-accordion-target="accordionContent" data-content_id="0">
+					HTML (Hypertext Markup Language) is the code that is used to structure a web page and its content. For example, content could be structured within a set of paragraphs, a list of bulleted points, or using
+					images and data tables. As the title suggests, this article will give you a basic understanding of HTML and its functions.
+				</div>
+			</div>
+
+			<br /><br /><br />
+
+			<div>
+				<button type="button" data-accordion-event="click->toggle" data-accordion-content_id-param="1">What is CSS ????</button>
+
+				<div style="display: none" data-accordion-target="accordionContent" data-content_id="1">
+					CSS (Cascading Style Sheets) allows you to create great-looking web pages, but how does it work under the hood? This article explains what CSS is, with a simple syntax example, and also covers some key
+					terms about the language.
+				</div>
+			</div>
+
+			<br /><br /><br />
+
+			<div>
+				<button type="button" data-accordion-event="click->toggle" data-accordion-content_id-param="2">What is Javascript ????</button>
+
+				<div style="display: none" data-accordion-target="accordionContent" data-content_id="2">
+					JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to
+					look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — you can bet that JavaScript is probably involved. It is the third layer of the
+					layer cake of standard web technologies, two of which (HTML and CSS) we have covered in much more detail in other parts of the Learning Area.
+				</div>
+			</div>
+		</div>
+
+		<script type="module" src="./accordion.js"></script>
+	</body>
+</html>
