@@ -10,10 +10,51 @@ const dataSchema = {
 
 class Dropdown {
 	constructor() {
-		this.isShow = true;
+		this.isShow = false;
+
+		this.clickOutside();
+		this.escapeClose();
 	}
 
 	static targets = ["content"];
+
+	clickOutside() {
+		document.documentElement.addEventListener("click", (event) => {
+			const eventTargetElement = event.target;
+
+			if (eventTargetElement !== this.eventElement && this.isShow === true) {
+				if (this.contentElement) {
+					this.contentElement.style.setProperty("display", "none");
+					this.isShow = false;
+				}
+
+				if (this.contentElements) {
+					this.contentElements[0].style.setProperty("display", "none");
+					this.contentElements[1].style.setProperty("display", "none");
+					this.isShow = false;
+				}
+			}
+		});
+	}
+
+	escapeClose() {
+		document.documentElement.addEventListener("keydown", (event) => {
+			const keyboardKey = event.key;
+
+			if (keyboardKey === "Escape" && this.isShow === true) {
+				if (this.contentElement) {
+					this.contentElement.style.setProperty("display", "none");
+					this.isShow = false;
+				}
+
+				if (this.contentElements) {
+					this.contentElements[0].style.setProperty("display", "none");
+					this.contentElements[1].style.setProperty("display", "none");
+					this.isShow = false;
+				}
+			}
+		});
+	}
 
 	toggle() {
 		if (this.isShow === false) {
@@ -40,6 +81,10 @@ class Dropdown {
 			}
 		}
 	}
+
+	doubleClick() {
+		console.log("double click triggered");
+	}
 }
 
-new Interaction(CONTROLLER_NAME, Dropdown, dataSchema);
+new Interaction(CONTROLLER_NAME, dataSchema, Dropdown);

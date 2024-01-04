@@ -67,6 +67,8 @@ export class Interaction {
 			const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
 
 			if (controllerElementScope === controllerElement) {
+				controllerInstance.eventElement = element;
+
 				for (let eventListenerIdx = 0; eventListenerIdx < eventListners.length; eventListenerIdx++) {
 					const actionElementData = eventListners[eventListenerIdx].split("->");
 					const eventName = actionElementData[0];

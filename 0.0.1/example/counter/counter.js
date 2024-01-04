@@ -37,4 +37,4 @@ class Counter {
 	}
 }
 
-new Interaction(CONTROLLER_NAME, Counter, dataSchema);
+new Interaction(CONTROLLER_NAME, dataSchema, Counter);

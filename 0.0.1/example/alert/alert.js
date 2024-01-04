@@ -15,4 +15,4 @@ class Alert {
 	}
 }
 
-new Interaction(CONTROLLER_NAME, Alert, dataSchema);
+new Interaction(CONTROLLER_NAME, dataSchema, Alert);
