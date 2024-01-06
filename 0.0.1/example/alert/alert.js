@@ -11,7 +11,6 @@ const dataSchema = {
 class Alert {
 	close(event) {
 		this.controllerElement.remove();
-		console.log(event.eventParams);
 	}
 }
 
