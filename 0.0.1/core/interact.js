@@ -41,23 +41,20 @@ export class Interaction {
 				}
 
 				if (selectedTargetElements.length === 1) {
-					const targetProperty = `${targetIdentifier}Element`;
-
-					controllerInstance[targetProperty] = selectedTargetElements[0];
+					const eventElementPropertyName = `${targetIdentifier}Element`;
+					controllerInstance[eventElementPropertyName] = selectedTargetElements[0];
 				}
 
 				if (selectedTargetElements.length > 1) {
-					const targetProperty = `${targetIdentifier}Elements`;
-
-					controllerInstance[targetProperty] = selectedTargetElements;
+					const eventElementPropertyName = `${targetIdentifier}Elements`;
+					controllerInstance[eventElementPropertyName] = selectedTargetElements;
 				}
-
-				selectedTargetElements = [];
 			}
 		}
 	}
 
 	setEventListeners(controllerElement, controllerInstance) {
+		let selectedEventElements = [];
 		const selector = `[${this.dataScheme.event}]`;
 		const elements = controllerElement.querySelectorAll(selector);
 
@@ -67,7 +64,7 @@ export class Interaction {
 			const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
 
 			if (controllerElementScope === controllerElement) {
-				controllerInstance.eventElement = element;
+				selectedEventElements.push(element);
 
 				for (let eventListenerIdx = 0; eventListenerIdx < eventListners.length; eventListenerIdx++) {
 					const actionElementData = eventListners[eventListenerIdx].split("->");
@@ -81,6 +78,16 @@ export class Interaction {
 					});
 				}
 			}
+		}
+
+		if (selectedEventElements.length === 1) {
+			const targetPropertyName = "eventElement";
+			controllerInstance[targetPropertyName] = selectedEventElements[0];
+		}
+
+		if (selectedEventElements.length > 1) {
+			const targetPropertiesName = "eventElements";
+			controllerInstance[targetPropertiesName] = selectedEventElements;
 		}
 	}
 
