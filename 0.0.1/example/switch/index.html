@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Switch example</title>
+
+		<style>
+			body {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				justify-content: center;
+			}
+
+			[role="switch"] {
+				margin: 2px;
+				user-select: none;
+				border-radius: 5px;
+				padding: 4px 4px 8px 8px;
+				border: 0 solid #005a9c;
+			}
+
+			[role="switch"] .switch {
+				top: 6px;
+				width: 40px;
+				height: 20px;
+				position: relative;
+				border-radius: 12px;
+				display: inline-block;
+				border: 2px solid black;
+			}
+
+			[role="switch"] .switch span {
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				display: inline-block;
+				border: 2px solid black;
+				border-radius: 8px;
+				height: 12px;
+				width: 12px;
+				background: black;
+			}
+
+			[role="switch"][aria-checked="true"] .switch span {
+				left: 21px;
+				background: green;
+				border-color: green;
+			}
+
+			[role="switch"]:focus span.switch {
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div data-interaction-controller="switch">
+			<div data-switch-event="click->toggle" role="switch" aria-checked="false" tabindex="0" class="han-switch" data-han-switch="switch__one" data-han-element-name="switch">
+				<span class="switch">
+					<span></span>
+				</span>
+			</div>
+		</div>
+
+		<br /><br /><br />
+
+		<div data-interaction-controller="switch">
+			<div data-switch-event="click->toggle" role="switch" aria-checked="false" tabindex="0" class="han-switch" data-han-switch="switch__two" data-han-element-name="switch">
+				<span class="switch">
+					<span></span>
+				</span>
+			</div>
+		</div>
+
+		<script type="module" src="./switch.js"></script>
+	</body>
+</html>
