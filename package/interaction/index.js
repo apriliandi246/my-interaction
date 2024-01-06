@@ -1,4 +1,4 @@
-export class Interaction {
+class Interaction {
 	constructor(controllerName, dataScheme, Controller) {
 		this.controllerElements;
 		this.Controller = Controller;
@@ -128,3 +128,5 @@ export class Interaction {
 		}
 	}
 }
+
+export default Interaction;
