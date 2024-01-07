@@ -5,7 +5,7 @@ const CONTROLLER_NAME = "alert";
 const dataSchema = {
 	controller: "data-interaction-controller",
 	target: `data-${CONTROLLER_NAME}-target`,
-	event: `data-${CONTROLLER_NAME}-event`,
+	event: `data-${CONTROLLER_NAME}-event`
 };
 
 class Alert {

@@ -5,7 +5,7 @@ const CONTROLLER_NAME = "switch";
 const dataSchema = {
 	controller: "data-interaction-controller",
 	target: `data-${CONTROLLER_NAME}-target`,
-	event: `data-${CONTROLLER_NAME}-event`,
+	event: `data-${CONTROLLER_NAME}-event`
 };
 
 class Switch {

@@ -33,7 +33,9 @@ class Interaction {
 
 				for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
 					const element = elements[elementIdx];
-					const controllerElementScope = element.closest(`[${this.dataScheme.controller}="${this.controllerName}"]`);
+					const controllerElementScope = element.closest(
+						`[${this.dataScheme.controller}="${this.controllerName}"]`
+					);
 
 					if (controllerElementScope === controllerElement) {
 						selectedTargetElements.push(element);
