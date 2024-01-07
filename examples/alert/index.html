@@ -17,6 +17,16 @@
 				cursor: pointer;
 			}
 		</style>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"interaction": "../../package/interaction/index.js"
+				}
+			}
+		</script>
+
+		<script type="module" src="./alert.js"></script>
 	</head>
 	<body>
 		<div class="alert" data-interaction-controller="alert">
@@ -51,7 +61,5 @@
 			<p>Alert message 5</p>
 			<button type="button" data-alert-event="click->close">X</button>
 		</div>
-
-		<script type="module" src="./alert.js"></script>
 	</body>
 </html>

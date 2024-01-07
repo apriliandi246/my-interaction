@@ -1,4 +1,4 @@
-import { Interaction } from "../../0.0.1/core/interact.js";
+import Interaction from "interaction";
 
 const CONTROLLER_NAME = "alert";
 

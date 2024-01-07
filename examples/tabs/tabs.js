@@ -1,4 +1,4 @@
-import Interaction from "../../package/interaction/index.js";
+import Interaction from "interaction";
 
 const CONTROLLER_NAME = "tabs";
 

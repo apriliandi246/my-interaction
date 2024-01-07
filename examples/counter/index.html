@@ -11,6 +11,16 @@
 				border: 1px solid red;
 			}
 		</style>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"interaction": "../../package/interaction/index.js"
+				}
+			}
+		</script>
+
+		<script type="module" src="./counter.js"></script>
 	</head>
 	<body>
 		<div data-interaction-controller="counter">
@@ -71,7 +81,5 @@
 			<button data-counter-event="click->increase" type="button">increase one</button>
 			<span data-counter-target="result">0</span>
 		</div>
-
-		<script type="module" src="./counter.js"></script>
 	</body>
 </html>

@@ -28,6 +28,16 @@
 				border: 2px solid red;
 			}
 		</style>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"interaction": "../../package/interaction/index.js"
+				}
+			}
+		</script>
+
+		<script type="module" src="./accordion.js"></script>
 	</head>
 	<body>
 		<div class="accordion-outer" class="accordion-container" data-interaction-controller="accordion">
@@ -177,7 +187,5 @@
 				</div>
 			</div>
 		</div>
-
-		<script type="module" src="./accordion.js"></script>
 	</body>
 </html>
