@@ -56,7 +56,7 @@ Library to make HTML more declarative and make easy to interact with DOM....
 
 <br>
 
-#####And finally you can see the examples inside `examples/` folder
+<h5>And finally you can see the examples inside `examples/` folder</h5>
 
 <h3 align="center">. . .</h3>
 
