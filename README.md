@@ -33,6 +33,8 @@ Library to make HTML more declarative and make easy to interact with DOM....
 		new Interaction("controllerName", YourClassController, customDataSchema);
 		```
 
+<br>
+
 - **Controller**
 	* Basically, controller is just container wrapper and element inside the controller can use the features
 
