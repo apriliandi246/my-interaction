@@ -3,9 +3,7 @@
 	"version": "1.0.0",
 	"description": "Library to make HTML more declarative and make easy to interact with DOM....",
 	"main": "index.js",
-	"directories": {
-		"example": "examples"
-	},
+	"directories": {},
 	"scripts": {
 		"pretty": "prettier . --write",
 		"test": "jest"
