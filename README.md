@@ -10,11 +10,34 @@ Library to make HTML more declarative and make easy to interact with DOM....
 
 ### 🧩 How to use it
 
+- **Data Schema**
+	* Default schema
+		* Controller - `data-interaction-controller`
+		* Target element - `data-[controllerName]-target`
+		* Event element - `data-[controllerName]-event`
+
+	* But, you can also create your own schema
+		```javascript
+		import Interaction from "interaction";
+
+		const CONTROLLER_NAME = "controller";
+
+		const customDataSchema = {
+			controller: `data-${CONTROLLER_NAME}-controller`,
+			target: `data-${CONTROLLER_NAME}-target`,
+			event: `data-${CONTROLLER_NAME}-event`
+		};
+
+		class YourClassController {}
+
+		new Interaction("controllerName", YourClassController, customDataSchema);
+		```
+
 - **Controller**
 	* Basically, controller is just container wrapper and element inside the controller can use the features
 
 		```html
-		<div data-interaction-controller="[controller name]">
+		<div data-interaction-controller="[controller name-]">
 		</div>
 		```
 
