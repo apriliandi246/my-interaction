@@ -1,13 +1,5 @@
 import Interaction from "interaction";
 
-const CONTROLLER_NAME = "tabs";
-
-const dataSchema = {
-	controller: "data-interaction-controller",
-	target: `data-${CONTROLLER_NAME}-target`,
-	event: `data-${CONTROLLER_NAME}-event`
-};
-
 class Tabs {
 	constructor() {
 		this.activeTabId = 0;
@@ -87,4 +79,4 @@ class Tabs {
 	}
 }
 
-new Interaction(CONTROLLER_NAME, dataSchema, Tabs);
+new Interaction("tabs", Tabs);

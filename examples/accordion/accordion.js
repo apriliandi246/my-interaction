@@ -1,13 +1,5 @@
 import Interaction from "interaction";
 
-const CONTROLLER_NAME = "accordion";
-
-const dataSchema = {
-	controller: "data-interaction-controller",
-	target: `data-${CONTROLLER_NAME}-target`,
-	event: `data-${CONTROLLER_NAME}-event`
-};
-
 class Accordion {
 	constructor() {
 		this.currentAccordionActive = -1;
@@ -47,4 +39,4 @@ class Accordion {
 	}
 }
 
-new Interaction(CONTROLLER_NAME, dataSchema, Accordion);
+new Interaction("accordion", Accordion);

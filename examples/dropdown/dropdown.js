@@ -1,13 +1,5 @@
 import Interaction from "interaction";
 
-const CONTROLLER_NAME = "dropdown";
-
-const dataSchema = {
-	controller: "data-interaction-controller",
-	target: `data-${CONTROLLER_NAME}-target`,
-	event: `data-${CONTROLLER_NAME}-event`
-};
-
 class Dropdown {
 	constructor() {
 		this.isShow = false;
@@ -87,4 +79,4 @@ class Dropdown {
 	}
 }
 
-new Interaction(CONTROLLER_NAME, dataSchema, Dropdown);
+new Interaction("dropdown", Dropdown);

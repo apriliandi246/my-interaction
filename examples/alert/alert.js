@@ -3,15 +3,15 @@ import Interaction from "interaction";
 const CONTROLLER_NAME = "alert";
 
 const dataSchema = {
-	controller: "data-interaction-controller",
+	controller: `data-${CONTROLLER_NAME}-controller`,
 	target: `data-${CONTROLLER_NAME}-target`,
 	event: `data-${CONTROLLER_NAME}-event`
 };
 
 class Alert {
-	close(event) {
+	close() {
 		this.controllerElement.remove();
 	}
 }
 
-new Interaction(CONTROLLER_NAME, dataSchema, Alert);
+new Interaction("alert", Alert, dataSchema);

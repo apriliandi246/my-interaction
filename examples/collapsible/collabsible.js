@@ -1,13 +1,5 @@
 import Interaction from "interaction";
 
-const CONTROLLER_NAME = "collabsible";
-
-const dataSchema = {
-	controller: "data-interaction-controller",
-	target: `data-${CONTROLLER_NAME}-target`,
-	event: `data-${CONTROLLER_NAME}-event`
-};
-
 class Collabsible {
 	constructor() {
 		this.activeCollapsibles = [];
@@ -37,4 +29,4 @@ class Collabsible {
 	}
 }
 
-new Interaction(CONTROLLER_NAME, dataSchema, Collabsible);
+new Interaction("collabsible", Collabsible);
