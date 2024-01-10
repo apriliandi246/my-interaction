@@ -1,4 +1,9 @@
 class Interaction {
+	/**
+	 * @param {string} controllerName
+	 * @param {object} dataScheme
+	 * @param {Class} Controller
+	 */
 	constructor(controllerName, dataScheme, Controller) {
 		this.controllerElements;
 		this.Controller = Controller;
@@ -22,6 +27,10 @@ class Interaction {
 		this.controllerElements = Array.from(elements);
 	}
 
+	/**
+	 * @param {HTMLElement} controllerElement
+	 * @param {Controller} controllerInstance
+	 */
 	setTargetElements(controllerElement, controllerInstance) {
 		let selectedTargetElements = [];
 
@@ -33,9 +42,8 @@ class Interaction {
 
 				for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
 					const element = elements[elementIdx];
-					const controllerElementScope = element.closest(
-						`[${this.dataScheme.controller}="${this.controllerName}"]`
-					);
+					const controllerElementSelector = `[${this.dataScheme.controller}="${this.controllerName}"]`;
+					const controllerElementScope = element.closest(controllerElementSelector);
 
 					if (controllerElementScope === controllerElement) {
 						selectedTargetElements.push(element);
@@ -55,6 +63,10 @@ class Interaction {
 		}
 	}
 
+	/**
+	 * @param {HTMLElement} controllerElement
+	 * @param {Controller} controllerInstance
+	 */
 	setEventListeners(controllerElement, controllerInstance) {
 		let selectedEventElements = [];
 		const selector = `[${this.dataScheme.event}]`;
@@ -93,10 +105,13 @@ class Interaction {
 		}
 	}
 
-	getEventParameters(element) {
+	/**
+	 * @param {HTMLElement} eventElement
+	 */
+	getEventParameters(eventElement) {
 		const parameters = {};
 		const dataAttrPattern = new RegExp(`^data-${this.controllerName}-(.+)-param$`, "i");
-		const datasetAttributes = Array.from(element.attributes);
+		const datasetAttributes = Array.from(eventElement.attributes);
 
 		for (const datasetAttribute of datasetAttributes) {
 			const { name, value } = datasetAttribute;
