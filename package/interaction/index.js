@@ -1,6 +1,6 @@
 /**
  * For default data schema
- * @param {object} controllerName
+ * @param {string} controllerName
  * @returns {object}
  */
 function getDataSchema(controllerName) {
@@ -47,7 +47,7 @@ class Interaction {
 	 * @param {Controller} controllerInstance
 	 */
 	setTargetElements(controllerElement, controllerInstance) {
-		let selectedTargetElements = [];
+		const selectedTargetElements = [];
 
 		if (this.targetIdentifier !== undefined && this.targetIdentifier.length > 0) {
 			for (let targetIdx = 0; targetIdx < this.targetIdentifier.length; targetIdx++) {
@@ -83,7 +83,7 @@ class Interaction {
 	 * @param {Controller} controllerInstance
 	 */
 	setEventListeners(controllerElement, controllerInstance) {
-		let selectedEventElements = [];
+		const selectedEventElements = [];
 		const selector = `[${this.dataScheme.event}]`;
 		const elements = controllerElement.querySelectorAll(selector);
 
@@ -122,6 +122,7 @@ class Interaction {
 
 	/**
 	 * @param {HTMLElement} eventElement
+	 * @returns {object}
 	 */
 	getEventParameters(eventElement) {
 		const parameters = {};
