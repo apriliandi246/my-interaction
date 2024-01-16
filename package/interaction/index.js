@@ -1,25 +1,12 @@
-/**
- * For default data schema
- * @param {string} controllerName
- * @returns {object}
- */
-function getDataSchema(controllerName) {
-	const dataSchema = {
-		controller: "data-interaction-controller",
-		target: `data-${controllerName}-target`,
-		event: `data-${controllerName}-event`
-	};
-
-	return dataSchema;
-}
+import getDefaultDataSchema from "./default_data_schema.js";
 
 class Interaction {
 	/**
 	 * @param {string} controllerName
-	 * @param {object} dataScheme
 	 * @param {Class} Controller
+	 * @param {object} dataScheme
 	 */
-	constructor(controllerName, Controller, dataScheme = getDataSchema(controllerName)) {
+	constructor(controllerName, Controller, dataScheme = getDefaultDataSchema(controllerName)) {
 		this.controllerElements;
 		this.Controller = Controller;
 		this.controllerName = controllerName;
